@@ -121,7 +121,7 @@ public class Policy {
     }
 
     public double calculateBMI(){
-        double bmi = (weight * 702) / (height*height);
+        double bmi = (weight * 703) / (height*height);
 
         return bmi;
     }    
