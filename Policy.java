@@ -37,6 +37,7 @@ public class Policy {
     private double height;
     private double weight;
     
+
     private Policy(){
         policyNum = 00000;
         provName = "provider";
@@ -48,6 +49,20 @@ public class Policy {
         weight = 165;
     }
     
+    /*
+     * Constructor with arguments for building policy holder
+     *  
+     * @param policyNumber provided policy number for individual
+     * @param providerName Name of insurance provider for individual
+     * @param holderFirst First name of individual policy holder
+     * @param holderLast Last name of individual policy holder
+     * @param age Policy holder current age
+     * @param smokerStatus Whether or not the policy holder is a smoker (yes/no)
+     * @param height Listed height for policy holder
+     * @param weight Listed weight for policy holder
+     * 
+     */
+
     Policy(int policyNumber, String providerName, String holderFirst, String holderLast, int age, String smokerStatus, double height, double weight) {
         this.policyNum = policyNumber;
         this.provName = providerName;
@@ -59,35 +74,59 @@ public class Policy {
         this.weight = weight;
 
     }
-
+    /*
+     * @return policyNum returns instance policy number 
+     */
     public int getPolicyNumber(){
         return policyNum;
     }
     
+    /*
+     * @return provName returns instance provider name
+     */
     public String getPoviderName(){
         return provName;
     }
 
+    /*
+     * @return holdFirst returns first name of policy holder
+     */
     public String getHolderFirst(){
         return holdFirst;
     }
 
+    /*
+     * @return holdLast returns last name of policy holder for getter
+     * 
+     */
     public String getHolderLast(){
         return holdLast;
     }
 
+    /*
+     * @return holdAge returns age of policy holder for getter 
+     * 
+     */
     public int getHolderAge(){
         return holdAge;
     }
 
+    /*
+     * @return smokerStatus returns smoker status of policy holder for getter
+     */
     public String getSmokerStatus(){
         return smokerStatus;
     }
 
+    /*
+     * @return height returns height of policy holder for getter 
+     */
     public double getHeight(){
         return height;
     }
-
+    /*
+     * @return weight returns weight of policy holder for getter
+     */
     public double getWeight(){
         return weight;
     }
@@ -119,13 +158,17 @@ public class Policy {
     public void setWeight(int newWeight){
         this.weight = newWeight;
     }
-
+    /*
+     * @return bmi returns bmi as calculated from height and weight of policy holder
+     */
     public double calculateBMI(){
         double bmi = (weight * 703) / (height*height);
 
         return bmi;
     }    
-    
+    /*
+     * @return policyPrice returns the calculated price of the policy based on input 
+     */
     public double policyPrice(){
         double policyPrice = 600;
         
