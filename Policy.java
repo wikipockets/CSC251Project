@@ -30,25 +30,21 @@ public class Policy {
 
     private int policyNum;
     private String provName;
-    private String holdFirst;
-    private String holdLast;
-    private int holdAge;
-    private String smokerStatus;
-    private double height;
-    private double weight;
-    
+
+
+
+    private PolicyHolder pHolder;
+
+
 
     private Policy(){
         policyNum = 00000;
         provName = "provider";
-        holdFirst = "peter";
-        holdLast = "parker";
-        holdAge = 18;
-        smokerStatus = "non-smoker";
-        height = 72;
-        weight = 165;
+        pHolder = new PolicyHolder();
     }
-    
+
+
+
     /*
      * Constructor with arguments for building policy holder
      *  
@@ -63,16 +59,17 @@ public class Policy {
      * 
      */
 
-    Policy(int policyNumber, String providerName, String holderFirst, String holderLast, int age, String smokerStatus, double height, double weight) {
+    public PolicyHolder getpHolder() {
+        return pHolder;
+    }
+
+    public void setpHolder(PolicyHolder pHolder) {
+        this.pHolder = pHolder;
+    }
+
+    Policy(int policyNumber, String providerName) {
         this.policyNum = policyNumber;
         this.provName = providerName;
-        this.holdFirst = holderFirst;
-        this.holdLast = holderLast;
-        this.holdAge = age;
-        this.smokerStatus = smokerStatus;
-        this.height = height;
-        this.weight = weight;
-
     }
     /*
      * @return policyNum returns instance policy number 
@@ -84,108 +81,49 @@ public class Policy {
     /*
      * @return provName returns instance provider name
      */
-    public String getPoviderName(){
+    public String getProviderName(){
         return provName;
     }
 
-    /*
-     * @return holdFirst returns first name of policy holder
-     */
-    public String getHolderFirst(){
-        return holdFirst;
-    }
 
-    /*
-     * @return holdLast returns last name of policy holder for getter
-     * 
-     */
-    public String getHolderLast(){
-        return holdLast;
-    }
-
-    /*
-     * @return holdAge returns age of policy holder for getter 
-     * 
-     */
-    public int getHolderAge(){
-        return holdAge;
-    }
-
-    /*
-     * @return smokerStatus returns smoker status of policy holder for getter
-     */
-    public String getSmokerStatus(){
-        return smokerStatus;
-    }
-
-    /*
-     * @return height returns height of policy holder for getter 
-     */
-    public double getHeight(){
-        return height;
-    }
-    /*
-     * @return weight returns weight of policy holder for getter
-     */
-    public double getWeight(){
-        return weight;
-    }
 
     public void setPolicyNumber(int newPolicyNum){
         this.policyNum = newPolicyNum;
     }
     
-    public void setHolderFirst(String newHoldFirst){
-        this.holdFirst = newHoldFirst;
+    public void setProviderName(String newProvName){
+        this.provName = newProvName;
     }
 
-    public void setHolderLast(String newHoldLast){
-        this.holdLast = newHoldLast;
+
+
+    @Override
+    public String toString() {
+        return "Policy{" +
+                "policyNum = " + policyNum +
+                ", provName = '" + provName + '\'' + pHolder.toString() +
+                '}';
     }
 
-    public void setHolderAge(int newHoldAge){
-        this.holdAge = newHoldAge;
-    }
-
-    public void setSmokerStatus(String newSmokerStatus){
-        this.smokerStatus = newSmokerStatus;
-    }
-
-    public void setHeight(int newHeight){
-        this.height = newHeight;
-    }
-
-    public void setWeight(int newWeight){
-        this.weight = newWeight;
-    }
-    /*
-     * @return bmi returns bmi as calculated from height and weight of policy holder
-     */
-    public double calculateBMI(){
-        double bmi = (weight * 703) / (height*height);
-
-        return bmi;
-    }    
     /*
      * @return policyPrice returns the calculated price of the policy based on input 
      */
     public double policyPrice(){
         double policyPrice = 600;
         
-        if (holdAge > 50){
+        if (pHolder.getHolderAge() > 50){
             policyPrice += 75;
 
         }
-        if (smokerStatus == "smoker"){
+        if (pHolder.getSmokerStatus() == "smoker"){
             policyPrice += 100;
         }
-        if (calculateBMI() > 35){
-            policyPrice += ((calculateBMI() - 35) * 20);
+        if (pHolder.calculateBMI() > 35){
+            policyPrice += ((pHolder.calculateBMI() - 35) * 20);
         }
 
         return policyPrice;
     }
 
-    
 
 }
