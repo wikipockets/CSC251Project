@@ -53,6 +53,7 @@ public class Project_Stephen_Johnson {
         
         String useless;
 
+        int countPolicy = 0;
 
     // double bmi;
     // double policyPrice;
@@ -123,7 +124,8 @@ public class Project_Stephen_Johnson {
         height = scan.nextDouble();
         weight = scan.nextDouble();
 
-        Policy newPolicy = new Policy(policyNumber, providerName, holderFirst, holderLast, age, smokerStatus, height, weight);
+        PolicyHolder pHolder = new PolicyHolder(holderFirst, holderLast, age, smokerStatus, height, weight);
+        Policy newPolicy = new Policy(policyNumber, providerName, pHolder);
 
         policyList.add(newPolicy);
 
@@ -138,6 +140,7 @@ public class Project_Stephen_Johnson {
         else {
             countSmoke++;
         }
+        countPolicy++;
         
     }
 
@@ -145,22 +148,23 @@ public class Project_Stephen_Johnson {
     for(Policy p:policyList){
 
     System.out.print("Policy Number: " + p.getPolicyNumber() + "\n");
-    System.out.print("\n" + "Provider Name: " + p.getPoviderName() + "\n");
-    System.out.print("\n" + "Policyholder's First Name: " + p.getHolderFirst()+ "\n");
-    System.out.print("\n" + "Policyholder's Last Name: " + p.getHolderLast() + "\n");
-    System.out.print("\n" + "Policyholder's Age: " + p.getHolderAge() + "\n");
-    System.out.print("\n" + "Policyholder's Smoking Status: " + p.getSmokerStatus() + "\n");
-    System.out.print("\n" + "Policyholder's Height: " + p.getHeight() + " inches" + "\n");
-    System.out.print("\n" + "Policyholder's Weight: " + p.getWeight() + " pounds" + "\n");
-    System.out.printf("\n" + "Policyholder's BMI: %, .2f", p.calculateBMI());
+    System.out.print("\n" + "Provider Name: " + p.getProviderName() + "\n");
+    System.out.print("\n" + "Policyholder's First Name: " + p.getpHolder().getHolderFirst()+ "\n");
+    System.out.print("\n" + "Policyholder's Last Name: " + p.getpHolder().getHolderLast() + "\n");
+    System.out.print("\n" + "Policyholder's Age: " + p.getpHolder().getHolderAge() + "\n");
+    System.out.print("\n" + "Policyholder's Smoking Status: " + p.getpHolder().getSmokerStatus() + "\n");
+    System.out.print("\n" + "Policyholder's Height: " + p.getpHolder().getHeight() + " inches" + "\n");
+    System.out.print("\n" + "Policyholder's Weight: " + p.getpHolder().getWeight() + " pounds" + "\n");
+    System.out.printf("\n" + "Policyholder's BMI: %, .2f", p.getpHolder().calculateBMI());
     System.out.print("\n");
     System.out.printf("\n" + "Policy Price: $%,.2f", p.policyPrice());
     System.out.print("\n");
     }
 
+    System.out.print("\n"+ "There were " + countPolicy + " Policy objects created. " + "\n");
     System.out.print("\n\n" + "The number of policies with a smoker is: " + countSmoke + "\n");
     System.out.print("\n"+ "The number of polices with a non-smoker is: " + countNonSmoke + "\n");
-
+    System.out.print("\n"+ "There were " + countPolicy + " Policy objects created. " + "\n");
     }
 
 
