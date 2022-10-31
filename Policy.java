@@ -67,9 +67,10 @@ public class Policy {
         this.pHolder = pHolder;
     }
 
-    Policy(int policyNumber, String providerName) {
+    Policy(int policyNumber, String providerName, PolicyHolder pHolder) {
         this.policyNum = policyNumber;
         this.provName = providerName;
+        this.pHolder = pHolder;
     }
     /*
      * @return policyNum returns instance policy number 
@@ -102,6 +103,7 @@ public class Policy {
         return "Policy{" +
                 "policyNum = " + policyNum +
                 ", provName = '" + provName + '\'' + pHolder.toString() +
+                ", Policy Price = " + policyPrice() +
                 '}';
     }
 

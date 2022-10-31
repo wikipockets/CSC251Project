@@ -158,13 +158,13 @@ public class Project_Stephen_Johnson {
     System.out.printf("\n" + "Policyholder's BMI: %, .2f", p.getpHolder().calculateBMI());
     System.out.print("\n");
     System.out.printf("\n" + "Policy Price: $%,.2f", p.policyPrice());
-    System.out.print("\n");
+    System.out.print("\n\n");
     }
 
     System.out.print("\n"+ "There were " + countPolicy + " Policy objects created. " + "\n");
-    System.out.print("\n\n" + "The number of policies with a smoker is: " + countSmoke + "\n");
+    System.out.print("\n" + "The number of policies with a smoker is: " + countSmoke + "\n");
     System.out.print("\n"+ "The number of polices with a non-smoker is: " + countNonSmoke + "\n");
-    System.out.print("\n"+ "There were " + countPolicy + " Policy objects created. " + "\n");
+
     }
 
 
